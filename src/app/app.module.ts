@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
-import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { AppComponent }  from './app.component';
+import { routing }        from './app.routing';
+import { MoviesComponent } from './components/movies/movies.component';
+import { AngularFireModule} from 'angularfire2';
+import { AngularFirestore, AngularFirestoreModule} from 'angularfire2/firestore';
+import {environment} from '../environments/environment';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MoviesComponent,
+    AngularFirestore,
+    AngularFirestoreModule,
+       
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AngularFirestore,
+        routing,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule.enablePersistence()
+      
   ],
-  providers: [],
+  providers: [ 
+    
+
+    // provider used to create fake backend
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
