@@ -1,0 +1,9 @@
+
+<input type="text" [(ngModel)]="searchterm" (keydown)="search($event)">
+<ul *ngFor="let movie of movies">
+  <li>{{movie.movie}}</li>
+  
+</ul>
+<div *ngIf="movies?.length < 1 ">
+  <p>Sorry, no clubs found</p>
+</div>
